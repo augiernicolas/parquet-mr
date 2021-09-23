@@ -88,7 +88,6 @@ public class TestLargeColumnChunk {
         .withConf(conf)
         .withCompressionCodec(UNCOMPRESSED)
         .withRowGroupSize(4L * 1024 * 1024 * 1024) // 4G to ensure all data goes to one row group
-        .withBloomFilterEnabled(true)
         .build()) {
       for (long id = 0; id < ROW_COUNT; ++id) {
         Group group = factory.newGroup();
