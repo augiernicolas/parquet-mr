@@ -36,4 +36,14 @@ public class ShowDictionaryCommandTest extends ParquetFileTest {
     command.setConf(new Configuration());
     Assert.assertEquals(0, command.run());
   }
+
+  @Test
+  public void testShowDirectoryCommandWithoutDictionaryEncoding() throws IOException {
+    File file = parquetFile();
+    ShowDictionaryCommand command = new ShowDictionaryCommand(createLogger());
+    command.targets = Arrays.asList(file.getAbsolutePath());
+    command.column = DOUBLE_FIELD;
+    command.setConf(new Configuration());
+    Assert.assertEquals(0, command.run());
+  }
 }
